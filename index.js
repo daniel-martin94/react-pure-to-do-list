@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { render } from 'react-dom';
-import Hello from './Hello';
 import ListItem from './ListItem'
 import NewToDo from './NewToDo'
 import './style.css';
@@ -17,22 +16,36 @@ function App() {
 
   function markCompleted(id) {
     //grab the current id, mark the list item as completed, update the to do List
-     console.log(id)
+    updateToDo(toDo.map(function (item, index) {
+      if (index == id) {
+        item.complete = true
+      }
+      return item
+    }))
   }
 
-  function renderTasks() {
-    return toDo.map(function (item, index) {
-      if (!item.complete) {
-      return (
-        <ListItem title={item.title} key={index} markCompleted={markCompleted}></ListItem>
-      )
+  // function renderTasks() {
+  //   return toDo.map(function (item, index) {
+  //     if (item.complete == false) {
+  //       return (
+  //         <ListItem title={item.title} key={index} markCompleted={markCompleted} id={index} ></ListItem>
+  //       )
+  //     }
+  //   })
+  // }
+
+  useEffect(() => {
+    updateToDo(toDo.map(function (item, index) {
+      if (item.complete == false) {
+        return (
+          <ListItem title={item.title} key={index} markCompleted={markCompleted} id={index} ></ListItem>
+        )
       }
-    })
-  }
-  console.log(toDo)
+    }))
+  }, [toDo])
   return (
     <div>
-      {renderTasks()}
+      // {renderTasks()}
       <NewToDo add={addToDo} ></NewToDo>
     </div>
   );

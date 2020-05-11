@@ -4,11 +4,11 @@ import Hello from './Hello';
 import './style.css';
 
 const ListItem = (props) => {
-  let { title, markCompleted } = props
+  let { title, markCompleted, id } = props
     return (
       <div>
         <div>{title}
-          <input type="checkbox" onChange={markCompleted}/>
+          <input type="checkbox" onChange={() => markCompleted(id)}/>
         </div>
       </div>
     );
