@@ -33,16 +33,7 @@ function App() {
       }
     })
   }
-
-  // useEffect(() => {
-  //   updateToDo(toDo.map(function (item, index) {
-  //     if (item.complete == false) {
-  //       return (
-  //         <ListItem title={item.title} key={index} markCompleted={markCompleted} id={index} ></ListItem>
-  //       )
-  //     }
-  //   }))
-  // }, [toDo])
+  
   return (
     <div>
       {renderTasks()}
