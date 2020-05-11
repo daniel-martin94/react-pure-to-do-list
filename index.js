@@ -1,26 +1,22 @@
-import React, { Component } from 'react';
+import React, { useState, Component } from 'react';
 import { render } from 'react-dom';
 import Hello from './Hello';
+import ListItem from './ListItem'
 import './style.css';
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      name: 'React'
-    };
-  }
+const App = () => {
 
-  render() {
+  const [toDo, updateToDo] = useState([])
+
     return (
       <div>
-        <Hello name={this.state.name} />
+
+        <ListItem title={"Hello World"}></ListItem> 
         <p>
           Start editing to see some magic happen :)
         </p>
       </div>
     );
-  }
 }
 
-render(<App />, document.getElementById('root'));
+export default App
