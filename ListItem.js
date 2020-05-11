@@ -4,10 +4,10 @@ import Hello from './Hello';
 import './style.css';
 
 const ListItem = (props) => {
-  let { title, markCompleted, id } = props
+  let { title, markCompleted, id, complete } = props
     return (
       <div>
-        <div>{title}
+        <div style={{ textDecoration: complete ? "line-through" : ""}}>{title}
           <input type="checkbox" onChange={() => markCompleted(id)}/>
         </div>
       </div>
