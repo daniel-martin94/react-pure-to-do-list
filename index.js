@@ -11,25 +11,29 @@ function App() {
 
   const [toDo, updateToDo] = useState([])
 
-  function addToDo() {
-    updateToDo([...toDo, { title: "Enter task", complete: false }])
+  function addToDo(text) {
+    updateToDo([...toDo, { title: text, complete: false }])
   }
-  function updateTitle(value, key) {
-    console.log(key)
+
+  function markCompleted(id) {
+    //grab the current id, mark the list item as completed, update the to do List
+     console.log(id)
   }
 
   function renderTasks() {
     return toDo.map(function (item, index) {
-      console.log(item)
+      if (!item.complete) {
       return (
-        <ListItem title={item.title} updateTitle={() => updateTitle(item.index)} key={index} id={item.index}></ListItem>
+        <ListItem title={item.title} key={index} markCompleted={markCompleted}></ListItem>
       )
+      }
     })
   }
+  console.log(toDo)
   return (
     <div>
       {renderTasks()}
-      <NewToDo add={addToDo()}></NewToDo>
+      <NewToDo add={addToDo} ></NewToDo>
     </div>
   );
 }

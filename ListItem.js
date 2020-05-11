@@ -4,12 +4,12 @@ import Hello from './Hello';
 import './style.css';
 
 const ListItem = (props) => {
-  let { title, updateTitle, id } = props
-  console.log(updateTitle)
+  let { title, markCompleted } = props
     return (
       <div>
-        <input type="text" value={title} onChange={(e) => updateTitle(id, e)}/>
-        <input type="checkbox"/>
+        <div>{title}
+          <input type="checkbox" onChange={markCompleted}/>
+        </div>
       </div>
     );
 }
