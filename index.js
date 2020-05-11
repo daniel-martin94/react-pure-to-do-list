@@ -24,15 +24,15 @@ function App() {
     }))
   }
 
-  // function renderTasks() {
-  //   return toDo.map(function (item, index) {
-  //     if (item.complete == false) {
-  //       return (
-  //         <ListItem title={item.title} key={index} markCompleted={markCompleted} id={index} ></ListItem>
-  //       )
-  //     }
-  //   })
-  // }
+  function renderTasks() {
+    return toDo.map(function (item, index) {
+      if (item.complete == false) {
+        return (
+          <ListItem title={item.title} key={index} markCompleted={markCompleted} id={index} ></ListItem>
+        )
+      }
+    })
+  }
 
   // useEffect(() => {
   //   updateToDo(toDo.map(function (item, index) {
@@ -45,7 +45,7 @@ function App() {
   // }, [toDo])
   return (
     <div>
-      // {renderTasks()}
+      {renderTasks()}
       <NewToDo add={addToDo} ></NewToDo>
     </div>
   );
