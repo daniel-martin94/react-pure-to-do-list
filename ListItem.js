@@ -4,12 +4,14 @@ import Hello from './Hello';
 import './style.css';
 
 const ListItem = (props) => {
-  let { title } = props
+  let { title, updateTitle, id } = props
+  console.log(updateTitle)
     return (
       <div>
-        <div>{title}</div>
+        <input type="text" value={title} onChange={(e) => updateTitle(id, e)}/>
+        <input type="checkbox"/>
       </div>
     );
 }
 
-export default ListItem
+export default ListItem;
